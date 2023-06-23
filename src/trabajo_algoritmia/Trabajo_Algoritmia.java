@@ -1,9 +1,11 @@
 package trabajo_algoritmia;
 import java.util.*;
+
 //esta es una prueba de edicion con github web editor (4:22pm) añadí una ; en el import :D
 //este web editor es como una version web de visual code studio, tiene una funcion para correr el código, lo probaré.
 //no disponible en el entorno web, le di al botón verde de continuar trabajando, me abrió una nueva ventada "codespaces" donde estoy instalando un depurador de java
 //funciona, tarda un poco pero corre el código :D
+
 public class Trabajo_Algoritmia {
 
     public static void main(String[] args) {
@@ -85,8 +87,7 @@ public class Trabajo_Algoritmia {
             System.out.println("La matriz no cumple con ningún tipo específico.");
         }
         //representación gráfica de la matriz (prueba)
-        int aux;
-        aux=0;
+
          for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 
