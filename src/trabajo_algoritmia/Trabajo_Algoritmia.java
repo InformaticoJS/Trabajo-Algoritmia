@@ -19,7 +19,7 @@ public class Trabajo_Algoritmia {
             if (scanner.hasNextInt()) {
                 filas = scanner.nextInt();
 
-                if (filas < 0) {
+                if (filas <= 0) {
                     System.out.println("El número de filas debe ser mayor que 0");
                 }
             } else {
@@ -27,7 +27,7 @@ public class Trabajo_Algoritmia {
                 scanner.next(); // Consumir entrada inválida para evitar un bucle infinito
                 filas = -1; // Asignar un valor inválido para que se repita el bucle
             }
-        } while (filas < 0);
+        } while (filas <= 0);
 
         //columnas
         do{
@@ -36,7 +36,7 @@ public class Trabajo_Algoritmia {
             if(scanner.hasNextInt()){
                 columnas = scanner.nextInt();
 
-                if(columnas < 0){
+                if(columnas <= 0){
                     System.out.println("El número de filas debe ser mayor que 0");
                 }
             }else{
@@ -44,7 +44,7 @@ public class Trabajo_Algoritmia {
                 scanner.next(); //consumir entrada inválida para evitar un bucle infinito
                 columnas=-1; // asignar un valor inválido para que se repita el bucle
             }
-        }while(columnas < 0);
+        }while(columnas <= 0);
 
          //creación del array
         int[][] matriz = new int[filas][columnas];
