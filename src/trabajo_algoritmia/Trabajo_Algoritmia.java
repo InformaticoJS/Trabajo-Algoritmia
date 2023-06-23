@@ -22,6 +22,7 @@ public class Trabajo_Algoritmia {
         // Llenar la matriz con los valores ingresados por el usuario
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
+                System.out.println("ingrese el elemento: a("+i+";"+j+")"); //añadí un indicador de elementos para que el usuario pueda saber que esta ingresando
                 matriz[i][j] = scanner.nextInt();
             }
         }
