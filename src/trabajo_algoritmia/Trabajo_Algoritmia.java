@@ -171,6 +171,6 @@ public class Trabajo_Algoritmia {
         int columnas = matriz[0].length;
 
         return filas > 1 && columnas == 1;
-    }
+    }//equide
     //prueba de escritorio2
 }
