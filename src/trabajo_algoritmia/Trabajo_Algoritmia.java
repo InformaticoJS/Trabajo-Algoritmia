@@ -73,22 +73,46 @@ public class Trabajo_Algoritmia {
         }
         scanner.close();
         //salida
-
+        System.out.println("|||||||| ANÁLISIS DE LA MATRIZ  ||||||||");
+        System.out.println(" ");
         if (esMatrizNula(matriz)) {
             System.out.println("La matriz es nula.");
-        } else if (esMatrizIdentidad(matriz)) {
+        } else{
+            System.out.println("La matriz no es nula.");
+        } 
+        if (esMatrizIdentidad(matriz)) {
             System.out.println("La matriz es identidad.");
-        } else if (esMatrizEscalar(matriz)) {
-            System.out.println("La matriz es escalar.");
-        } else if (esMatrizFila(matriz)) {
-            System.out.println("La matriz es una fila.");
-        } else if (esMatrizColumna(matriz)) {
-            System.out.println("La matriz es una columna.");
         } else {
+            System.out.println("La matriz no es identidad.");
+        }
+        
+        if (esMatrizEscalar(matriz)) {
+            System.out.println("La matriz es escalar.");
+        } else {
+            System.out.println("La matriz no es escalar.");
+        }
+
+        if (esMatrizFila(matriz)) {
+            System.out.println("La matriz es una fila.");
+        } else {
+            System.out.println("La matriz no es una fila.");
+        }
+        //añadí una forma de saber si es simétrica cree un public boolean tambien para ello.
+        if(esSimetrica(matriz)){
+            System.out.println("la matriz es simétrica");
+        } else {
+            System.out.println("la matriz no es simétrica");
+        }
+
+        if (esMatrizColumna(matriz)) {
+            System.out.println("La matriz es una columna.");
+        }
+        if (!esMatrizColumna(matriz)&&!esMatrizEscalar(matriz)&&!esMatrizFila(matriz)&&!esMatrizIdentidad(matriz)&&!esMatrizNula(matriz)&&!esSimetrica(matriz)){
             System.out.println("La matriz no cumple con ningún tipo específico.");
         }
         //representación gráfica de la matriz (prueba)
-
+        System.out.println("|||||||| REPRESENTACIÓN DE LA MATRÍZ  ||||||||");
+        System.out.println(" ");
          for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 
@@ -109,6 +133,21 @@ public class Trabajo_Algoritmia {
             }
         }
         return true;
+    }
+    //Verificar si la matriz es simétrica
+    //añadido recientemente
+    public static boolean esSimetrica(int[][]matriz){
+        boolean aux=true;
+        for (int i = 0; i < matriz.length; i++){
+            for (int j = 0; j < matriz[0].length;j=j+1) {
+                if (matriz[i][j] != matriz[j][i]) {
+                       aux=false;
+                       break; 
+                    }
+            }
+        }
+        return aux;
+        
     }
 
     // Verificar si la matriz es identidad
