@@ -173,4 +173,5 @@ public class Trabajo_Algoritmia {
         return filas > 1 && columnas == 1;
     }//equide
     //prueba de escritorio2
+    //A
 }
