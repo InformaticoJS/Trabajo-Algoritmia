@@ -7,6 +7,7 @@ import java.util.*;
 //funciona, tarda un poco pero corre el código :D
 
 public class Trabajo_Algoritmia {
+    //edición
 
     public static void main(String[] args) {
         //variables
