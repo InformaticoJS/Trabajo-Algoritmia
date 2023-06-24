@@ -139,6 +139,10 @@ public class Trabajo_Algoritmia {
     public static boolean esSimetrica(int[][]matriz){
         boolean aux=true;
         for (int i = 0; i < matriz.length; i++){
+            if(matriz.length!=matriz[0].length){
+                aux=false;
+                break;
+            }
             for (int j = 0; j < matriz[0].length;j=j+1) {
                 if (matriz[i][j] != matriz[j][i]) {
                        aux=false;
