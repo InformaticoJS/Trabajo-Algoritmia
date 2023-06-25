@@ -104,6 +104,21 @@ public class Trabajo_Algoritmia {
             System.out.println("la matriz no es simétrica");
         }
 
+        if(esMatrizTriangularSuperior(matriz)){
+            System.out.println("La matriz es triangular superior");
+         }else {
+             System.out.println("la matriz no es triangular superior");
+         }
+         
+         if(esMatrizTriangularInferior(matriz)){
+            System.out.println("La matriz es triangular inferior");
+         }else {
+             System.out.println("la matriz no es triangular inferior");
+         }
+
+
+
+
         if (esMatrizColumna(matriz)) {
             System.out.println("La matriz es una columna.");
         }
@@ -199,6 +214,36 @@ public class Trabajo_Algoritmia {
 
         return true;
     }
+    // Verificar si la matriz es triangular superior
+    public static boolean esMatrizTriangularSuperior(int[][] matriz) {
+        int filas = matriz.length;
+        int columnas = matriz[0].length;
+
+        for (int i = 1; i < filas; i++) {
+            for (int j = 0; j < i; j++) {
+                if (matriz[i][j] != 0) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+    // Verificar si la matriz es triangular inferior
+    public static boolean esMatrizTriangularInferior(int[][] matriz) {
+        int filas = matriz.length;
+        int columnas = matriz[0].length;
+
+        for (int i = 0; i < filas - 1; i++) {
+            for (int j = i + 1; j < columnas; j++) {
+                if (matriz[i][j] != 0) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
 
     // Verificar si la matriz es una fila
     public static boolean esMatrizFila(int[][] matriz) {
@@ -217,5 +262,6 @@ public class Trabajo_Algoritmia {
     }//equide
     //prueba de escritorio2
     //MMMA
+
   
 }
