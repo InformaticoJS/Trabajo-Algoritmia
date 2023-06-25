@@ -122,7 +122,7 @@ public class Trabajo_Algoritmia {
         if (esMatrizColumna(matriz)) {
             System.out.println("La matriz es una columna.");
         }
-        if (!esMatrizColumna(matriz)&&!esMatrizEscalar(matriz)&&!esMatrizFila(matriz)&&!esMatrizIdentidad(matriz)&&!esMatrizNula(matriz)&&!esSimetrica(matriz)){
+        if (!esMatrizColumna(matriz)&&!esMatrizEscalar(matriz)&&!esMatrizFila(matriz)&&!esMatrizIdentidad(matriz)&&!esMatrizNula(matriz)&&!esSimetrica(matriz)&&!esMatrizTriangularSuperior(matriz)&&!esMatrizTriangularInferior(matriz)){
             System.out.println("La matriz no cumple con ningún tipo específico.");
         }
         //representación gráfica de la matriz (prueba)
