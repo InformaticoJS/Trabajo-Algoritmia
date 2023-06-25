@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Copia_de_seguridad {
     //edición
-    //en esta versión no acepta  decimales
+    //en esta versión si acepta decimales
 
     public static void main(String[] args) {
         //variables
