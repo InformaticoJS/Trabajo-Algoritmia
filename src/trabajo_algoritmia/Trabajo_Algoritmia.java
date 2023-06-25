@@ -268,33 +268,33 @@ public class Trabajo_Algoritmia {
         if(letra.equals("t")){
             if (filas==columnas) {
             
-            int traz = 0;
-        for(int i=0;i<filas;i++){
-           for(int j=0;j<columnas;j++){
-               if(i==j){
-             traz=matriz[i][j]+traz;}
-           } 
-        }
-        System.out.println("TRAZA DE LA MATRIZ");
-        System.out.println(traz);
+                int traz = 0;
+                for(int i=0;i<filas;i++){
+                    for(int j=0;j<columnas;j++){
+                        if(i==j){
+                       traz=matriz[i][j]+traz;}
+                    } 
+                }
+                System.out.println("TRAZA DE LA MATRIZ");
+                System.out.println(traz);
             }else {
-        System.out.println("No se puede hallar una traza para matrices rectangulares. ");    
+                System.out.println("No se puede hallar una traza para matrices rectangulares. ");    
             }
         
         }
             
         //TRANSPUESTA DE UNA MATRIZ
             if(letra.equals("d")){
-              int[][] matrizTranspuesta = new int[columnas][filas];
-              filas = matriz.length;
-              columnas = matriz[0].length;
-              for (int i = 0; i < filas; i++) {
-                System.out.print("[ ");
-                for (int j = 0; j < columnas; j++) {
-                 matrizTranspuesta[j][i] = matriz[i][j];
+                int[][] matrizTranspuesta = new int[columnas][filas];
+                filas = matriz.length;
+                columnas = matriz[0].length;
+                for (int i = 0; i < filas; i++) {
+                    System.out.print("[ ");
+                    for (int j = 0; j < columnas; j++) {
+                        matrizTranspuesta[j][i] = matriz[i][j];
                  
-              }
-            }
+                    }
+                }
                 
               // Obtener las dimensiones de la matriz transpuesta
               int filasTranspuesta = matrizTranspuesta.length;
@@ -315,6 +315,7 @@ public class Trabajo_Algoritmia {
             }
         } 
     
+        //funciones para determinar las propiedades de la matriz ingresada inicialmente
     
     public static boolean esRectangular(int[][]matriz){
         if(matriz.length!=matriz[0].length){
@@ -332,7 +333,7 @@ public class Trabajo_Algoritmia {
         for (int[] fila : matriz) {
             for (int elemento : fila) {
                 if (elemento != 0) {
-                    return false;
+                    return false; //return (true o false) es como un break que asigna a "esMatrizNula" el valor de false o true para luego ser evaluado, al ejecutar el return se detiene esta funciona y devuelve el valor booleano
                 }
             }
         }
