@@ -32,7 +32,7 @@ public class Copia_de_seguridad {
         do{
             System.out.print("Ingrese el número de columnas: ");
             
-            if(scanner.hasNextInt()){
+            if(scanner.hasNextDouble()){
                 columnas = scanner.nextInt();
 
                 if(columnas <= 0){
@@ -46,7 +46,7 @@ public class Copia_de_seguridad {
         }while(columnas <= 0);
 
          //creación del array
-        int[][] matriz = new int[filas][columnas];
+        double[][] matriz = new double[filas][columnas];
 
         //entrada de elementos del array
         System.out.println("Ingrese los elementos de la matriz:");
@@ -57,8 +57,8 @@ public class Copia_de_seguridad {
                 do {
                     System.out.println("Ingrese el elemento en la posición a(" + (i + 1) + ";" + (j + 1) + "):");
 
-                    if (scanner.hasNextInt()) {
-                        matriz[i][j] = scanner.nextInt();
+                    if (scanner.hasNextDouble()) {
+                        matriz[i][j] = scanner.nextDouble();
                         break; // Salir del bucle si se ingresó un número entero válido
                     } else {
                         System.out.println("Debe ingresar un número entero.");
@@ -178,7 +178,7 @@ public class Copia_de_seguridad {
    
         //SUMA DE 2 MATRICES
         if (letra.equals("s")) {
-          int[][] matriz2 = new int[filas][columnas];
+          double[][] matriz2 = new double[filas][columnas];
 
         //entrada de elementos del array
         System.out.println("Ingrese los elementos de la segunda matriz:");
@@ -190,7 +190,7 @@ public class Copia_de_seguridad {
                     System.out.println("Ingrese el elemento en la posición a(" + (i + 1) + ";" + (j + 1) + "):");
 
                     if (scanner.hasNextInt()) {
-                        matriz2[i][j] = scanner.nextInt();
+                        matriz2[i][j] = scanner.nextDouble();
                         break; // Salir del bucle si se ingresó un número entero válido
                     } else {
                         System.out.println("Debe ingresar un número entero.");
@@ -199,7 +199,7 @@ public class Copia_de_seguridad {
                 } while (true);
             }}
         
-        int[][] matrizsum = new int[filas][columnas];
+        double[][] matrizsum = new double[filas][columnas];
         for(int i=0;i<filas;i++){
            for(int j=0;j<columnas;j++){
              matrizsum[i][j]=matriz[i][j]+matriz2[i][j];
@@ -222,7 +222,7 @@ public class Copia_de_seguridad {
             
         //RESTA DE 2 MATRICES    
         if (letra.equals("m")){
-            int[][] matriz2 = new int[filas][columnas];
+            double[][] matriz2 = new double[filas][columnas];
 
         //entrada de elementos del array
         System.out.println("Ingrese los elementos de la segunda matriz:");
@@ -234,7 +234,7 @@ public class Copia_de_seguridad {
                     System.out.println("Ingrese el elemento en la posición a(" + (i + 1) + ";" + (j + 1) + "):");
 
                     if (scanner.hasNextInt()) {
-                        matriz2[i][j] = scanner.nextInt();
+                        matriz2[i][j] = scanner.nextDouble();
                         break; // Salir del bucle si se ingresó un número entero válido
                     } else {
                         System.out.println("Debe ingresar un número entero.");
@@ -243,7 +243,7 @@ public class Copia_de_seguridad {
                 } while (true);
             }}
         
-        int[][] matrizsum = new int[filas][columnas];
+        double[][] matrizsum = new double[filas][columnas];
         for(int i=0;i<filas;i++){
            for(int j=0;j<columnas;j++){
              matrizsum[i][j]=matriz[i][j]-matriz2[i][j];  
@@ -269,7 +269,7 @@ public class Copia_de_seguridad {
         if(letra.equals("t")){
             if (filas==columnas) {
             
-                int traz = 0;
+                double traz = 0;
                 for(int i=0;i<filas;i++){
                     for(int j=0;j<columnas;j++){
                         if(i==j){
@@ -286,7 +286,7 @@ public class Copia_de_seguridad {
             
         //TRANSPUESTA DE UNA MATRIZ
             if(letra.equals("d")){
-                int[][] matrizTranspuesta = new int[columnas][filas];
+                double[][] matrizTranspuesta = new double[columnas][filas];
                 filas = matriz.length;
                 columnas = matriz[0].length;
                 for (int i = 0; i < filas; i++) {
@@ -318,7 +318,7 @@ public class Copia_de_seguridad {
     
         //funciones para determinar las propiedades de la matriz ingresada inicialmente
     
-    public static boolean esRectangular(int[][]matriz){
+    public static boolean esRectangular(double[][]matriz){
         if(matriz.length!=matriz[0].length){
             return true;
         } else{
@@ -328,11 +328,11 @@ public class Copia_de_seguridad {
     }
 
     // Verificar si la matriz es nula
-    public static boolean esMatrizNula(int[][] matriz) {
+    public static boolean esMatrizNula(double[][] matriz) {
         //explicación: es una función o método (orientado a objetos), si es publica se puede llamar desde cualquier class, Static (devuelve valores), boolean (solo devuelve true o false).
         //(int[][]matriz); parametros int[][](matriz)
-        for (int[] fila : matriz) {
-            for (int elemento : fila) {
+        for (double[] fila : matriz) {
+            for (double elemento : fila) {
                 if (elemento != 0) {
                     return false; //return (true o false) es como un break que asigna a "esMatrizNula" el valor de false o true para luego ser evaluado, al ejecutar el return se detiene esta funciona y devuelve el valor booleano
                 }
@@ -342,7 +342,7 @@ public class Copia_de_seguridad {
     }
     //Verificar si la matriz es simétrica
     //añadido recientemente
-    public static boolean esSimetrica(int[][]matriz){
+    public static boolean esSimetrica(double[][]matriz){
         boolean aux=true;
         for (int i = 0; i < matriz.length; i++){
             if(matriz.length!=matriz[0].length){
@@ -361,7 +361,7 @@ public class Copia_de_seguridad {
     }
 
     // Verificar si la matriz es identidad
-    public static boolean esMatrizIdentidad(int[][] matriz) {
+    public static boolean esMatrizIdentidad(double[][] matriz) {
         int filas = matriz.length;
         int columnas = matriz[0].length;
 
@@ -383,7 +383,7 @@ public class Copia_de_seguridad {
     }
 
     // Verificar si la matriz es escalar
-    public static boolean esMatrizEscalar(int[][] matriz) {
+    public static boolean esMatrizEscalar(double[][] matriz) {
         int filas = matriz.length;
         int columnas = matriz[0].length;
 
@@ -391,7 +391,7 @@ public class Copia_de_seguridad {
             return false;
         }
 
-        int elementoPrincipal = matriz[0][0];
+        double elementoPrincipal = matriz[0][0];
 
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
@@ -406,7 +406,7 @@ public class Copia_de_seguridad {
         return true;
     }
     // Verificar si la matriz es triangular superior
-    public static boolean esMatrizTriangularSuperior(int[][] matriz) {
+    public static boolean esMatrizTriangularSuperior(double[][] matriz) {
         int filas = matriz.length;
 
         for (int i = 1; i < filas; i++) {
@@ -420,7 +420,7 @@ public class Copia_de_seguridad {
         return true;
     }
     // Verificar si la matriz es triangular inferior
-    public static boolean esMatrizTriangularInferior(int[][] matriz) {
+    public static boolean esMatrizTriangularInferior(double[][] matriz) {
         int filas = matriz.length;
         int columnas = matriz[0].length;
 
@@ -436,7 +436,7 @@ public class Copia_de_seguridad {
     }
 
     // Verificar si la matriz es una fila
-    public static boolean esMatrizFila(int[][] matriz) {
+    public static boolean esMatrizFila(double[][] matriz) {
         int filas = matriz.length;
         int columnas = matriz[0].length;
 
@@ -444,7 +444,7 @@ public class Copia_de_seguridad {
     }
 
     // Verificar si la matriz es una columna
-    public static boolean esMatrizColumna(int[][] matriz) {
+    public static boolean esMatrizColumna(double[][] matriz) {
         int filas = matriz.length;
         int columnas = matriz[0].length;
 
