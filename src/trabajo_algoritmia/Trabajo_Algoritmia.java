@@ -75,56 +75,62 @@ public class Trabajo_Algoritmia {
         //salida
         System.out.println("|||||||| ANÁLISIS DE LA MATRIZ  ||||||||");
         System.out.println(" ");
+        //rectangular o cuadrada
+        if(esRectangular(matriz)){
+            System.out.println("La matriz es rectangular");
+         } else {
+            System.out.println("La matriz es cuadrada");
+         }
+
+         //matriz nula
         if (esMatrizNula(matriz)) {
             System.out.println("La matriz es nula.");
         } else{
             System.out.println("La matriz no es nula.");
         } 
+        //matriz identidad
         if (esMatrizIdentidad(matriz)) {
             System.out.println("La matriz es identidad.");
         } else {
             System.out.println("La matriz no es identidad.");
         }
-        
+        //matriz escalar
         if (esMatrizEscalar(matriz)) {
             System.out.println("La matriz es escalar.");
         } else {
             System.out.println("La matriz no es escalar.");
         }
-
+        //matriz fila
         if (esMatrizFila(matriz)) {
             System.out.println("La matriz es una fila.");
         } else {
             System.out.println("La matriz no es una fila.");
         }
-        //añadí una forma de saber si es simétrica cree un public boolean tambien para ello.
+        //matriz simétrica
         if(esSimetrica(matriz)){
             System.out.println("la matriz es simétrica");
         } else {
             System.out.println("la matriz no es simétrica");
         }
-
+        //matriz triangular superior
         if(esMatrizTriangularSuperior(matriz)){
             System.out.println("La matriz es triangular superior");
          }else {
              System.out.println("la matriz no es triangular superior");
          }
-         
+         //matriz triangular inferior
          if(esMatrizTriangularInferior(matriz)){
             System.out.println("La matriz es triangular inferior");
          }else {
              System.out.println("la matriz no es triangular inferior");
          }
-
-
-
-
+         //matriz columna
         if (esMatrizColumna(matriz)) {
             System.out.println("La matriz es una columna.");
         }else{
             System.out.println("La matriz no es una columna.");
         }
-
+        //ningún tipo en específico
         if (!esMatrizColumna(matriz)&&!esMatrizEscalar(matriz)&&!esMatrizFila(matriz)&&!esMatrizIdentidad(matriz)&&!esMatrizNula(matriz)&&!esSimetrica(matriz)&&!esMatrizTriangularSuperior(matriz)&&!esMatrizTriangularInferior(matriz)){
             System.out.println("La matriz no cumple con ningún tipo específico.");
         }
@@ -140,9 +146,18 @@ public class Trabajo_Algoritmia {
             System.out.println(); // Salto de línea para crear una nueva fila
         }
     }
+    public static boolean esRectangular(int[][]matriz){
+        if(matriz.length!=matriz[0].length){
+            return true;
+        } else{
+            return false;
+        }
+    }
 
     // Verificar si la matriz es nula
     public static boolean esMatrizNula(int[][] matriz) {
+        //explicación: es una función o método (orientado a objetos), si es publica se puede llamar desde cualquier class, Static (devuelve valores), boolean (solo devuelve true o false).
+        //(int[][]matriz); parametros int[][](matriz)
         for (int[] fila : matriz) {
             for (int elemento : fila) {
                 if (elemento != 0) {
