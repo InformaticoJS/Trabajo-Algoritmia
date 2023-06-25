@@ -235,7 +235,6 @@ public class Trabajo_Algoritmia {
     // Verificar si la matriz es triangular superior
     public static boolean esMatrizTriangularSuperior(int[][] matriz) {
         int filas = matriz.length;
-        int columnas = matriz[0].length;
 
         for (int i = 1; i < filas; i++) {
             for (int j = 0; j < i; j++) {
