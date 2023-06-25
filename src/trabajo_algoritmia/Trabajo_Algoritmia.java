@@ -93,9 +93,9 @@ public class Trabajo_Algoritmia {
         }
 
         if (esMatrizFila(matriz)) {
-            System.out.println("La matriz es una fila.");
+            System.out.println("La matriz es fila.");
         } else {
-            System.out.println("La matriz no es una fila.");
+            System.out.println("La matriz no es fila.");
         }
         //añadí una forma de saber si es simétrica cree un public boolean tambien para ello.
         if(esSimetrica(matriz)){
@@ -105,23 +105,22 @@ public class Trabajo_Algoritmia {
         }
 
         if (esMatrizColumna(matriz)) {
-            System.out.println("La matriz es una columna.");
+            System.out.println("La matriz es columna.");
+        }else{
+            System.out.println("La matriz no es columna.");
         }
         if (!esMatrizColumna(matriz)&&!esMatrizEscalar(matriz)&&!esMatrizFila(matriz)&&!esMatrizIdentidad(matriz)&&!esMatrizNula(matriz)&&!esSimetrica(matriz)){
             System.out.println("La matriz no cumple con ningún tipo específico.");
         }
         //representación gráfica de la matriz (prueba)
-        System.out.println("|||||||| REPRESENTACIÓN DE LA MATRÍZ  ||||||||");
-        System.out.println(" ");
-         for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[i].length; j++) {
-                
-                System.out.print(matriz[i][j] + " "); //Impresión de cada elemento y un espacio
-                
-            }
-            System.out.println(); // Salto de línea para crear una nueva fila
+        System.out.println("|||||  REPRESENTACIÓN GRÁFICA  |||||");
+        for (int i = 0; i < matriz.length; i++) {
+            System.out.print("[ ");
+                for (int j = 0; j < matriz[i].length; j++) {
+                    System.out.print(matriz[i][j] + " ");
+                }
+            System.out.println("]");}
         }
-    }
 
     // Verificar si la matriz es nula
     public static boolean esMatrizNula(int[][] matriz) {
