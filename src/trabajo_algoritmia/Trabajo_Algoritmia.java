@@ -261,8 +261,10 @@ public class Trabajo_Algoritmia {
         
             
         //TRAZA DE LA MATRIZ
-            if(letra.equals("t")){
-             int traz = 0;
+        if(letra.equals("t")){
+            if (filas==columnas) {
+            
+            int traz = 0;
         for(int i=0;i<filas;i++){
            for(int j=0;j<columnas;j++){
                if(i==j){
@@ -271,7 +273,11 @@ public class Trabajo_Algoritmia {
         }
         System.out.println("TRAZA DE LA MATRIZ");
         System.out.println(traz);
+            }else {
+        System.out.println("No se puede hallar una traza para matrices rectangulares. ");    
             }
+        
+        }
             
         //TRANSPUESTA DE UNA MATRIZ
             if(letra.equals("d")){
