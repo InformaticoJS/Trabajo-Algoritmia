@@ -93,9 +93,9 @@ public class Trabajo_Algoritmia {
         }
 
         if (esMatrizFila(matriz)) {
-            System.out.println("La matriz es fila.");
+            System.out.println("La matriz es una fila.");
         } else {
-            System.out.println("La matriz no es fila.");
+            System.out.println("La matriz no es una fila.");
         }
         //añadí una forma de saber si es simétrica cree un public boolean tambien para ello.
         if(esSimetrica(matriz)){
@@ -120,22 +120,26 @@ public class Trabajo_Algoritmia {
 
 
         if (esMatrizColumna(matriz)) {
-            System.out.println("La matriz es columna.");
+            System.out.println("La matriz es una columna.");
         }else{
-            System.out.println("La matriz no es columna.");
+            System.out.println("La matriz no es una columna.");
         }
+
         if (!esMatrizColumna(matriz)&&!esMatrizEscalar(matriz)&&!esMatrizFila(matriz)&&!esMatrizIdentidad(matriz)&&!esMatrizNula(matriz)&&!esSimetrica(matriz)&&!esMatrizTriangularSuperior(matriz)&&!esMatrizTriangularInferior(matriz)){
             System.out.println("La matriz no cumple con ningún tipo específico.");
         }
         //representación gráfica de la matriz (prueba)
-        System.out.println("|||||  REPRESENTACIÓN GRÁFICA  |||||");
-        for (int i = 0; i < matriz.length; i++) {
-            System.out.print("[ ");
-                for (int j = 0; j < matriz[i].length; j++) {
-                    System.out.print(matriz[i][j] + " ");
-                }
-            System.out.println("]");}
+        System.out.println("|||||||| REPRESENTACIÓN DE LA MATRÍZ  ||||||||");
+        System.out.println(" ");
+         for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                
+                System.out.print(matriz[i][j] + " "); //Impresión de cada elemento y un espacio
+                
+            }
+            System.out.println(); // Salto de línea para crear una nueva fila
         }
+    }
 
     // Verificar si la matriz es nula
     public static boolean esMatrizNula(int[][] matriz) {
@@ -216,6 +220,7 @@ public class Trabajo_Algoritmia {
     // Verificar si la matriz es triangular superior
     public static boolean esMatrizTriangularSuperior(int[][] matriz) {
         int filas = matriz.length;
+        int columnas = matriz[0].length;
 
         for (int i = 1; i < filas; i++) {
             for (int j = 0; j < i; j++) {
