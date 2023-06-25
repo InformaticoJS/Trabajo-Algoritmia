@@ -1,11 +1,6 @@
 package trabajo_algoritmia;
 import java.util.*;
 
-//esta es una prueba de edicion con github web editor (4:22pm) añadí una ; en el import :D
-//este web editor es como una version web de visual code studio, tiene una funcion para correr el código, lo probaré.
-//no disponible en el entorno web, le di al botón verde de continuar trabajando, me abrió una nueva ventada "codespaces" donde estoy instalando un depurador de java
-//funciona, tarda un poco pero corre el código :D
-
 public class Trabajo_Algoritmia {
     //edición
 
@@ -71,6 +66,7 @@ public class Trabajo_Algoritmia {
                 } while (true);
             }
         }
+        
        
         //salida
         System.out.println("|||||||| ANÁLISIS DE LA MATRIZ  ||||||||");
@@ -145,12 +141,15 @@ public class Trabajo_Algoritmia {
         System.out.println("|||||||| REPRESENTACIÓN DE LA MATRÍZ  ||||||||");
         System.out.println(" ");
         for (int i = 0; i < matriz.length; i++) {
+            System.out.print("[ ");
             for (int j = 0; j < matriz[i].length; j++) {
                 
                 System.out.print(matriz[i][j] + " "); //Impresión de cada elemento y un espacio
                 
             }
+            System.out.print("] ");
             System.out.println(); // Salto de línea para crear una nueva fila
+            
         }
          System.out.println("Ingresa una operación a realizar, o ingrese 'q' para finalizar el programa :");
             System.out.println("Ingresa 'S' para sumar con otra matriz.");
@@ -202,18 +201,21 @@ public class Trabajo_Algoritmia {
         int[][] matrizsum = new int[filas][columnas];
         for(int i=0;i<filas;i++){
            for(int j=0;j<columnas;j++){
-             matrizsum[i][j]=matriz[i][j]+matriz2[i][j];  
+             matrizsum[i][j]=matriz[i][j]+matriz2[i][j];
            } 
         }
         System.out.println("|||||||| REPRESENTACIÓN DE LA SUMA  ||||||||");
         System.out.println(" ");
          for (int i = 0; i < matrizsum.length; i++) {
+            System.out.print("[ ");
             for (int j = 0; j < matrizsum[i].length; j++) {
                 
                 System.out.print(matrizsum[i][j] + " "); //Impresión de cada elemento y un espacio
                 
             }
+            System.out.print("] ");
             System.out.println(); // Salto de línea para crear una nueva fila
+            
         }
             }
             
@@ -249,11 +251,13 @@ public class Trabajo_Algoritmia {
         System.out.println("|||||||| REPRESENTACIÓN DE LA RESTA  ||||||||");
         System.out.println(" ");
          for (int i = 0; i < matrizsum.length; i++) {
+            System.out.print("[ ");
             for (int j = 0; j < matrizsum[i].length; j++) {
                 
                 System.out.print(matrizsum[i][j] + " "); //Impresión de cada elemento y un espacio
                 
             }
+            System.out.print("] ");
             System.out.println(); // Salto de línea para crear una nueva fila
         }
             }
@@ -285,6 +289,7 @@ public class Trabajo_Algoritmia {
               filas = matriz.length;
               columnas = matriz[0].length;
               for (int i = 0; i < filas; i++) {
+                System.out.print("[ ");
                 for (int j = 0; j < columnas; j++) {
                  matrizTranspuesta[j][i] = matriz[i][j];
                  
@@ -299,12 +304,14 @@ public class Trabajo_Algoritmia {
                System.out.println("|||||||| REPRESENTACIÓN DE LA TRANSPUESTA  ||||||||");
               System.out.println(" ");
               for (int i = 0; i < filasTranspuesta; i++) {
-               for (int j = 0; j < columnasTranspuesta; j++) {
+                System.out.print("[ ");
+                for (int j = 0; j < columnasTranspuesta; j++) {
                 System.out.print(matrizTranspuesta[i][j] + " ");
               }
+              System.out.print("] ");
                System.out.println(); 
               }
-                
+              scanner.close();  
             }
         } 
     
@@ -315,6 +322,7 @@ public class Trabajo_Algoritmia {
         } else{
             return false;
         }
+        
     }
 
     // Verificar si la matriz es nula
