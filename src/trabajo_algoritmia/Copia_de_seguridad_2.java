@@ -169,11 +169,11 @@ public class Copia_de_seguridad_2 {
             letra = letra.toLowerCase();
             
         
-        if (letra.length() == 1 && (letra.equals("s") ||letra.equals("m") ||letra.equals("x") ||letra.equals("t") ||letra.equals("d")||letra.equals("q") )){
-          uo= true; 
-        }else{
-            System.out.println("Ingrese un caracter indicado.");}
-    }
+            if (letra.length() == 1 && (letra.equals("s") ||letra.equals("m") ||letra.equals("t") ||letra.equals("d")||letra.equals("q") )){
+                uo= true; 
+            }else{
+                System.out.println("Ingrese un caracter indicado.");}
+        }
          
     if (letra.equals("q")) {
       System.out.println("FIN DEL PROGRAMA.");  
