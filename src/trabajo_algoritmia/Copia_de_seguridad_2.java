@@ -81,33 +81,33 @@ public class Copia_de_seguridad_2 {
             } else{
                 System.out.println("La matriz no es nula.");
             } 
-            if (esMatrizIdentidad(matriz)) {
+            if (esMatrizIdentidad(matriz)&&!esMatrizNula(matriz)) {
                 System.out.println("La matriz es identidad.");
             } else {
                 System.out.println("La matriz no es identidad.");
             }
         
-            if (esMatrizEscalar(matriz)) {
+            if (esMatrizEscalar(matriz)&&!esMatrizNula(matriz)) {
                 System.out.println("La matriz es escalar.");
             } else {
                 System.out.println("La matriz no es escalar.");
             }
         //añadí una forma de saber si es simétrica cree un public boolean tambien para ello.
-            if(esSimetrica(matriz)){
+            if(esSimetrica(matriz)&&!esMatrizNula(matriz)){
                 System.out.println("la matriz es simétrica");
             } else {
                 System.out.println("la matriz no es simétrica");
             }
-            if(esMatrizTriangularSuperior(matriz)&&esMatrizTriangularInferior(matriz)){
+            if(esMatrizTriangularSuperior(matriz)&&esMatrizTriangularInferior(matriz)&&!esMatrizNula(matriz)){
                 System.out.println("La matriz es diagonal");
             }else {
-                if(esMatrizTriangularSuperior(matriz)){
+                if(esMatrizTriangularSuperior(matriz)&&!esMatrizNula(matriz)){
                     System.out.println("La matriz es triangular superior");
                 }else {
                     System.out.println("la matriz no es triangular superior");
                 }
          
-                if(esMatrizTriangularInferior(matriz)){
+                if(esMatrizTriangularInferior(matriz)&&!esMatrizNula(matriz)){
                     System.out.println("La matriz es triangular inferior");
                 }else {
                     System.out.println("la matriz no es triangular inferior");
@@ -140,6 +140,7 @@ public class Copia_de_seguridad_2 {
         }
         
         //representación gráfica de la matriz (prueba)
+        System.out.println(" ");
         System.out.println("|||||||| REPRESENTACIÓN DE LA MATRÍZ  ||||||||");
         System.out.println(" ");
         for (int i = 0; i < matriz.length; i++) {
@@ -352,7 +353,8 @@ public class Copia_de_seguridad_2 {
 
         for (int j = 0; j < n; j++) { //recorre las columnas de la matriz
             double[][] submatriz = new double[n - 1][n - 1]; //submatriz n-1 x n-1
-
+            
+            //subatriz n-1xn-1 que empieza de la siguiene fila y columna
             for (int fila = 1; fila < n; fila++) { //recorre las filas empezando por la segunda fila
                 int columnaDestino = 0; //rastrea la columna suubmatriz
                 for (int columna = 0; columna < n; columna++) {
@@ -502,9 +504,7 @@ public class Copia_de_seguridad_2 {
         int columnas = matriz[0].length;
 
         return filas > 1 && columnas == 1;
-    }//equide
-    //prueba de escritorio2
-//MMMA
+    }
 
 }
 
