@@ -59,9 +59,9 @@ public class Copia_de_seguridad {
 
                     if (scanner.hasNextDouble()) {
                         matriz[i][j] = scanner.nextDouble();
-                        break; // Salir del bucle si se ingresó un número entero válido
+                        break; // Salir del bucle si se ingresó un número real válido
                     } else {
-                        System.out.println("Debe ingresar un número entero.");
+                        System.out.println("Debe ingresar un número real.");
                         scanner.next(); // Consumir entrada inválida para evitar un bucle infinito
                     }
                 } while (true);
@@ -189,11 +189,11 @@ public class Copia_de_seguridad {
                 do {
                     System.out.println("Ingrese el elemento en la posición a(" + (i + 1) + ";" + (j + 1) + "):");
 
-                    if (scanner.hasNextInt()) {
+                    if (scanner.hasNextDouble()) {
                         matriz2[i][j] = scanner.nextDouble();
                         break; // Salir del bucle si se ingresó un número entero válido
                     } else {
-                        System.out.println("Debe ingresar un número entero.");
+                        System.out.println("Debe ingresar un número real.");
                         scanner.next(); // Consumir entrada inválida para evitar un bucle infinito
                     }
                 } while (true);
@@ -233,11 +233,11 @@ public class Copia_de_seguridad {
                 do {
                     System.out.println("Ingrese el elemento en la posición a(" + (i + 1) + ";" + (j + 1) + "):");
 
-                    if (scanner.hasNextInt()) {
+                    if (scanner.hasNextDouble()) {
                         matriz2[i][j] = scanner.nextDouble();
                         break; // Salir del bucle si se ingresó un número entero válido
                     } else {
-                        System.out.println("Debe ingresar un número entero.");
+                        System.out.println("Debe ingresar un número real.");
                         scanner.next(); // Consumir entrada inválida para evitar un bucle infinito
                     }
                 } while (true);

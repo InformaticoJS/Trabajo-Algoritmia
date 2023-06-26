@@ -163,16 +163,16 @@ public class Trabajo_Algoritmia {
         String letra = " ";
         boolean uo=false;
          while (!uo) {
-            
-            letra = scanner.nextLine();
+            //cambie el scaner.nextLine() a scanner.next() para que se detenga ahí y no de el mensaje de error a primeras.
+            letra = scanner.next();
             letra = letra.toLowerCase();
-            
-        
-        if (letra.length() == 1 && (letra.equals("s") ||letra.equals("m") ||letra.equals("p") ||letra.equals("t") ||letra.equals("d")||letra.equals("q") )){
-          uo= true; 
-        }else{
-            System.out.println("Ingrese un caracter indicado.");}
-    }
+
+            if (letra.length() == 1 && (letra.equals("s") || letra.equals("m") || letra.equals("p") || letra.equals("t") || letra.equals("d") || letra.equals("q"))) {
+                uo = true;
+            } else {
+                System.out.println("Ingrese un caracter indicado.");
+            }
+        }
          
     if (letra.equals("q")) {
       System.out.println("FIN DEL PROGRAMA.");  
@@ -191,11 +191,11 @@ public class Trabajo_Algoritmia {
                 do {
                     System.out.println("Ingrese el elemento en la posición a(" + (i + 1) + ";" + (j + 1) + "):");
 
-                    if (scanner.hasNextInt()) {
+                    if (scanner.hasNextDouble()) {
                         matriz2[i][j] = scanner.nextDouble();
                         break; // Salir del bucle si se ingresó un número entero válido
                     } else {
-                        System.out.println("Debe ingresar un número entero.");
+                        System.out.println("Debe ingresar un número real.");
                         scanner.next(); // Consumir entrada inválida para evitar un bucle infinito
                     }
                 } while (true);
@@ -235,11 +235,11 @@ public class Trabajo_Algoritmia {
                 do {
                     System.out.println("Ingrese el elemento en la posición a(" + (i + 1) + ";" + (j + 1) + "):");
 
-                    if (scanner.hasNextInt()) {
+                    if (scanner.hasNextDouble()) {
                         matriz2[i][j] = scanner.nextDouble();
-                        break; // Salir del bucle si se ingresó un número entero válido
+                        break; // Salir del bucle si se ingresó un número real válido
                     } else {
-                        System.out.println("Debe ingresar un número entero.");
+                        System.out.println("Debe ingresar un número real.");
                         scanner.next(); // Consumir entrada inválida para evitar un bucle infinito
                     }
                 } while (true);
