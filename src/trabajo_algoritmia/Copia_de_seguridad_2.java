@@ -177,7 +177,7 @@ public class Copia_de_seguridad_2 {
          
     if (letra.equals("q")) {
       System.out.println("FIN DEL PROGRAMA.");  
-    }
+    }//si
    
         //SUMA DE 2 MATRICES
         if (letra.equals("s")) {
@@ -200,7 +200,8 @@ public class Copia_de_seguridad_2 {
                         scanner.next(); // Consumir entrada inválida para evitar un bucle infinito
                     }
                 } while (true);
-            }}
+            }
+        }
         
         double[][] matrizsum = new double[filas][columnas];
         for(int i=0;i<filas;i++){
@@ -295,7 +296,6 @@ public class Copia_de_seguridad_2 {
                 filas = matriz.length;
                 columnas = matriz[0].length;
                 for (int i = 0; i < filas; i++) {
-                    System.out.print("[ ");
                     for (int j = 0; j < columnas; j++) {
                         matrizTranspuesta[j][i] = matriz[i][j];
                  
