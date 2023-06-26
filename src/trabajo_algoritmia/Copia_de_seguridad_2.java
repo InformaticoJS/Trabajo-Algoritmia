@@ -165,7 +165,7 @@ public class Copia_de_seguridad_2 {
         boolean uo=false;
          while (!uo) {
             
-            letra = scanner.nextLine();
+            letra = scanner.next();
             letra = letra.toLowerCase();
             
         
