@@ -2,7 +2,7 @@ package trabajo_algoritmia;
 
 import java.util.*;
 
-public class MatrixVisualization {
+public class Copia_de_seguridad_2 {
     //edición
     //en esta versión si acepta decimales
 
