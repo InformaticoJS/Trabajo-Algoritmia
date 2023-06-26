@@ -159,7 +159,8 @@ public class Copia_de_seguridad_2 {
             System.out.println("Ingresa 'S' para sumar con otra matriz.");
             System.out.println("Ingresa 'M' para restar con otra matriz.");
             System.out.println("Ingresa 'T' para hallar su traza.");
-            System.out.println("Ingresa 'D' para hallar su transpuesta.");
+            System.out.println("Ingresa 'P' para hallar su transpuesta.");
+            System.out.println("Ingresa 'D' para hallar su determinante.");
             
         String letra = " ";
         boolean uo=false;
@@ -169,7 +170,7 @@ public class Copia_de_seguridad_2 {
             letra = letra.toLowerCase();
             
         
-            if (letra.length() == 1 && (letra.equals("s") ||letra.equals("m") ||letra.equals("t") ||letra.equals("d")||letra.equals("q") )){
+            if (letra.length() == 1 && (letra.equals("s") ||letra.equals("m") ||letra.equals("t") ||letra.equals("p")||letra.equals("d")||letra.equals("q") )){
                 uo= true; 
             }else{
                 System.out.println("Ingrese un caracter indicado.");}
@@ -291,7 +292,7 @@ public class Copia_de_seguridad_2 {
         }
             
         //TRANSPUESTA DE UNA MATRIZ
-            if(letra.equals("d")){
+            if(letra.equals("p")){
                 double[][] matrizTranspuesta = new double[columnas][filas];
                 filas = matriz.length;
                 columnas = matriz[0].length;
@@ -317,11 +318,57 @@ public class Copia_de_seguridad_2 {
               System.out.print("] ");
                System.out.println(); 
               }
-              scanner.close();  
+              
             }
+
+            //DETERMINANTE
+            if (letra.equals("d")) {
+                double det = 0;
+                if (filas > 0 && matriz.length == filas && matriz[0].length == filas) {
+                    if (filas == 1) {
+                        det = matriz[0][0];
+                    } else if (filas == 2) {
+                        det = matriz[0][0] * matriz[1][1] - matriz[0][1] * matriz[1][0];
+                    } else {
+                        det = calcularDeterminante(matriz); 
+                    }
+                } else {
+                    System.out.println("La matriz no es cuadrada. No se puede calcular la determinante.");
+                    
+                }
+                System.out.println("DETERMINANTE DE LA MATRIZ:");
+                System.out.println(det);
+                scanner.close();  
+            }
+            
         } 
     
         //funciones para determinar las propiedades de la matriz ingresada inicialmente
+
+        //DETERMINANTES
+        public static double calcularDeterminante(double[][] matriz) {
+        double det = 0;
+        int n = matriz.length;
+
+        for (int j = 0; j < n; j++) { //recorre las columnas de la matriz
+            double[][] submatriz = new double[n - 1][n - 1]; //submatriz n-1 x n-1
+
+            for (int fila = 1; fila < n; fila++) { //recorre las filas empezando por la segunda fila
+                int columnaDestino = 0; //rastrea la columna suubmatriz
+                for (int columna = 0; columna < n; columna++) {
+                    if (columna != j) { //verifica que la columna sea diferente
+                        submatriz[fila - 1][columnaDestino] = matriz[fila][columna];
+                        columnaDestino++;
+                    }
+                }
+            }
+
+            double cofactor = matriz[0][j] * calcularDeterminante(submatriz);  //multiplicacion de la primera fila por la determinante de la submatriz
+            det += j % 2 == 0 ? cofactor : -cofactor; 
+        }
+
+        return det; //devuelve la determinante
+        }
     
     public static boolean esRectangular(double[][]matriz){
         if(matriz.length!=matriz[0].length){
