@@ -327,7 +327,6 @@ public class Trabajo_Algoritmia {
                 }
             } else {
                 System.out.println("La matriz no es cuadrada. No se puede calcular la determinante.");
-                return; 
             }
 
             System.out.println("DETERMINANTE DE LA MATRIZ:");
