@@ -1,14 +1,11 @@
 package trabajo_algoritmia;
 
-import java.util.*;
 
-//esta es una prueba de edicion con github web editor (4:22pm) añadí una ; en el import :D
-//este web editor es como una version web de visual code studio, tiene una funcion para correr el código, lo probaré.
-//no disponible en el entorno web, le di al botón verde de continuar trabajando, me abrió una nueva ventada "codespaces" donde estoy instalando un depurador de java
-//funciona, tarda un poco pero corre el código :D
+import java.util.*;
 
 public class Trabajo_Algoritmia {
     //edición
+    //en esta versión si acepta decimales
 
     public static void main(String[] args) {
         //variables
@@ -37,7 +34,7 @@ public class Trabajo_Algoritmia {
         do{
             System.out.print("Ingrese el número de columnas: ");
             
-            if(scanner.hasNextInt()){
+            if(scanner.hasNextDouble()){
                 columnas = scanner.nextInt();
 
                 if(columnas <= 0){
@@ -59,18 +56,20 @@ public class Trabajo_Algoritmia {
         // Llenar la matriz con los valores ingresados por el usuario
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
-                boolean numero=false;
-                while(!numero) {
+                do {
                     System.out.println("Ingrese el elemento en la posición a(" + (i + 1) + ";" + (j + 1) + "):");
-                    String b = scanner.nextLine();
-                     try {
-                     matriz[i][j] = Double.parseDouble(b);
-                     numero=true;
-                        } catch (NumberFormatException e) {
-                System.out.println("Escriba un número válido.");
-            }}
+
+                    if (scanner.hasNextDouble()) {
+                        matriz[i][j] = scanner.nextDouble();
+                        break; // Salir del bucle si se ingresó un número entero válido
+                    } else {
+                        System.out.println("Debe ingresar un número entero.");
+                        scanner.next(); // Consumir entrada inválida para evitar un bucle infinito
+                    }
+                } while (true);
             }
         }
+        
        
         //salida
         System.out.println("|||||||| ANÁLISIS DE LA MATRIZ  ||||||||");
@@ -145,19 +144,22 @@ public class Trabajo_Algoritmia {
         System.out.println("|||||||| REPRESENTACIÓN DE LA MATRÍZ  ||||||||");
         System.out.println(" ");
         for (int i = 0; i < matriz.length; i++) {
+            System.out.print("[ ");
             for (int j = 0; j < matriz[i].length; j++) {
                 
                 System.out.print(matriz[i][j] + " "); //Impresión de cada elemento y un espacio
                 
             }
+            System.out.print("] ");
             System.out.println(); // Salto de línea para crear una nueva fila
+            
         }
          System.out.println("Ingresa una operación a realizar, o ingrese 'q' para finalizar el programa :");
             System.out.println("Ingresa 'S' para sumar con otra matriz.");
             System.out.println("Ingresa 'M' para restar con otra matriz.");
             System.out.println("Ingresa 'T' para saber su traza.");
-            System.out.println("Ingresa 'D' para saber su determinante.");
             System.out.println("Ingresa 'P' para saber su transpuesta.");
+            System.out.println("Ingresa 'D' para saber su determinante.");
         String letra = " ";
         boolean uo=false;
          while (!uo) {
@@ -189,7 +191,7 @@ public class Trabajo_Algoritmia {
                 do {
                     System.out.println("Ingrese el elemento en la posición a(" + (i + 1) + ";" + (j + 1) + "):");
 
-                    if (scanner.hasNextDouble()) {
+                    if (scanner.hasNextInt()) {
                         matriz2[i][j] = scanner.nextDouble();
                         break; // Salir del bucle si se ingresó un número entero válido
                     } else {
@@ -202,18 +204,21 @@ public class Trabajo_Algoritmia {
         double[][] matrizsum = new double[filas][columnas];
         for(int i=0;i<filas;i++){
            for(int j=0;j<columnas;j++){
-             matrizsum[i][j]=matriz[i][j]+matriz2[i][j];  
+             matrizsum[i][j]=matriz[i][j]+matriz2[i][j];
            } 
         }
         System.out.println("|||||||| REPRESENTACIÓN DE LA SUMA  ||||||||");
         System.out.println(" ");
          for (int i = 0; i < matrizsum.length; i++) {
+            System.out.print("[ ");
             for (int j = 0; j < matrizsum[i].length; j++) {
                 
                 System.out.print(matrizsum[i][j] + " "); //Impresión de cada elemento y un espacio
                 
             }
+            System.out.print("] ");
             System.out.println(); // Salto de línea para crear una nueva fila
+            
         }
             }
             
@@ -230,7 +235,7 @@ public class Trabajo_Algoritmia {
                 do {
                     System.out.println("Ingrese el elemento en la posición a(" + (i + 1) + ";" + (j + 1) + "):");
 
-                    if (scanner.hasNextDouble()) {
+                    if (scanner.hasNextInt()) {
                         matriz2[i][j] = scanner.nextDouble();
                         break; // Salir del bucle si se ingresó un número entero válido
                     } else {
@@ -249,11 +254,13 @@ public class Trabajo_Algoritmia {
         System.out.println("|||||||| REPRESENTACIÓN DE LA RESTA  ||||||||");
         System.out.println(" ");
          for (int i = 0; i < matrizsum.length; i++) {
+            System.out.print("[ ");
             for (int j = 0; j < matrizsum[i].length; j++) {
                 
                 System.out.print(matrizsum[i][j] + " "); //Impresión de cada elemento y un espacio
                 
             }
+            System.out.print("] ");
             System.out.println(); // Salto de línea para crear una nueva fila
         }
             }
@@ -264,32 +271,32 @@ public class Trabajo_Algoritmia {
         if(letra.equals("t")){
             if (filas==columnas) {
             
-            double traz = 0;
-        for(int i=0;i<filas;i++){
-           for(int j=0;j<columnas;j++){
-               if(i==j){
-             traz=matriz[i][j]+traz;}
-           } 
-        }
-        System.out.println("TRAZA DE LA MATRIZ");
-        System.out.println(traz);
+                double traz = 0;
+                for(int i=0;i<filas;i++){
+                    for(int j=0;j<columnas;j++){
+                        if(i==j){
+                       traz=matriz[i][j]+traz;}
+                    } 
+                }
+                System.out.println("TRAZA DE LA MATRIZ");
+                System.out.println(traz);
             }else {
-        System.out.println("No se puede hallar una traza para matrices rectangulares. ");    
+                System.out.println("No se puede hallar una traza para matrices rectangulares. ");    
             }
         
         }
             
         //TRANSPUESTA DE UNA MATRIZ
             if(letra.equals("p")){
-              double[][] matrizTranspuesta = new double[columnas][filas];
-              filas = matriz.length;
-              columnas = matriz[0].length;
-              for (int i = 0; i < filas; i++) {
-                for (int j = 0; j < columnas; j++) {
-                 matrizTranspuesta[j][i] = matriz[i][j];
-                 
-              }
-            }
+                double[][] matrizTranspuesta = new double[columnas][filas];
+                filas = matriz.length;
+                columnas = matriz[0].length;
+                for (int i = 0; i < filas; i++) {
+                    System.out.print("[ ");
+                    for (int j = 0; j < columnas; j++) {
+                        matrizTranspuesta[j][i] = matriz[i][j];          
+                    }
+                }
                 
               // Obtener las dimensiones de la matriz transpuesta
               int filasTranspuesta = matrizTranspuesta.length;
@@ -299,12 +306,14 @@ public class Trabajo_Algoritmia {
                System.out.println("|||||||| REPRESENTACIÓN DE LA TRANSPUESTA  ||||||||");
               System.out.println(" ");
               for (int i = 0; i < filasTranspuesta; i++) {
-               for (int j = 0; j < columnasTranspuesta; j++) {
+                System.out.print("[ ");
+                for (int j = 0; j < columnasTranspuesta; j++) {
                 System.out.print(matrizTranspuesta[i][j] + " ");
               }
+              System.out.print("] ");
                System.out.println(); 
               }
-                
+               
             }
             if (letra.equals("d")) {
             double det = 0;
@@ -324,7 +333,7 @@ public class Trabajo_Algoritmia {
             System.out.println("DETERMINANTE DE LA MATRIZ:");
             System.out.println(det);
         }
-
+          scanner.close(); 
     }
 
     public static double calcularDeterminante(double[][] matriz) {
@@ -350,15 +359,16 @@ public class Trabajo_Algoritmia {
 
         return det;
     }
- 
     
+        //funciones para determinar las propiedades de la matriz ingresada inicialmente
     
-    public static boolean esRectangular(int[][]matriz){
+    public static boolean esRectangular(double[][]matriz){
         if(matriz.length!=matriz[0].length){
             return true;
         } else{
             return false;
         }
+        
     }
 
     // Verificar si la matriz es nula
@@ -368,7 +378,7 @@ public class Trabajo_Algoritmia {
         for (double[] fila : matriz) {
             for (double elemento : fila) {
                 if (elemento != 0) {
-                    return false;
+                    return false; //return (true o false) es como un break que asigna a "esMatrizNula" el valor de false o true para luego ser evaluado, al ejecutar el return se detiene esta funciona y devuelve el valor booleano
                 }
             }
         }
@@ -478,7 +488,7 @@ public class Trabajo_Algoritmia {
     }
 
     // Verificar si la matriz es una columna
-    public static boolean esMatrizColumna(int[][] matriz) {
+    public static boolean esMatrizColumna(double[][] matriz) {
         int filas = matriz.length;
         int columnas = matriz[0].length;
 
