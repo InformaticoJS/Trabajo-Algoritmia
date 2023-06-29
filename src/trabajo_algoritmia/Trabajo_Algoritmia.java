@@ -1,6 +1,5 @@
 package trabajo_algoritmia;
 
-
 import java.util.*;
 
 public class Trabajo_Algoritmia {
@@ -61,9 +60,9 @@ public class Trabajo_Algoritmia {
 
                     if (scanner.hasNextDouble()) {
                         matriz[i][j] = scanner.nextDouble();
-                        break; // Salir del bucle si se ingresó un número entero válido
+                        break; // Salir del bucle si se ingresó un número real válido
                     } else {
-                        System.out.println("Debe ingresar un número entero.");
+                        System.out.println("Debe ingresar un número real.");
                         scanner.next(); // Consumir entrada inválida para evitar un bucle infinito
                     }
                 } while (true);
@@ -77,106 +76,110 @@ public class Trabajo_Algoritmia {
         //rectangular o cuadrada
         if(filas==columnas){
             System.out.println("La matriz es una matriz cuadrada.");
-        if (esMatrizNula(matriz)) {
-            System.out.println("La matriz es nula.");
-        } else{
-            System.out.println("La matriz no es nula.");
-        } 
-        if (esMatrizIdentidad(matriz)) {
-            System.out.println("La matriz es identidad.");
-        } else {
-            System.out.println("La matriz no es identidad.");
-        }
+            if (esMatrizNula(matriz)) {
+                System.out.println("La matriz es nula.");
+            } else{
+                System.out.println("La matriz no es nula.");
+            } 
+            if (esMatrizIdentidad(matriz)&&!esMatrizNula(matriz)) {
+                System.out.println("La matriz es identidad.");
+            } else {
+                System.out.println("La matriz no es identidad.");
+            }
         
-        if (esMatrizEscalar(matriz)) {
-            System.out.println("La matriz es escalar.");
-        } else {
-            System.out.println("La matriz no es escalar.");
-        }
+            if (esMatrizEscalar(matriz)&&!esMatrizNula(matriz)) {
+                System.out.println("La matriz es escalar.");
+            } else {
+                System.out.println("La matriz no es escalar.");
+            }
         //añadí una forma de saber si es simétrica cree un public boolean tambien para ello.
-        if(esSimetrica(matriz)){
-            System.out.println("la matriz es simétrica");
-        } else {
-            System.out.println("la matriz no es simétrica");
-        }
-        if(esMatrizTriangularSuperior(matriz)&&esMatrizTriangularInferior(matriz)){
-            System.out.println("La matriz es diagonal");
-        }else {
-        if(esMatrizTriangularSuperior(matriz)){
-            System.out.println("La matriz es triangular superior");
-         }else {
-             System.out.println("la matriz no es triangular superior");
-         }
+            if(esSimetrica(matriz)&&!esMatrizNula(matriz)){
+                System.out.println("la matriz es simétrica");
+            } else {
+                System.out.println("la matriz no es simétrica");
+            }
+            if(esMatrizTriangularSuperior(matriz)&&esMatrizTriangularInferior(matriz)&&!esMatrizNula(matriz)){
+                System.out.println("La matriz es diagonal");
+            }else {
+                if(esMatrizTriangularSuperior(matriz)&&!esMatrizNula(matriz)){
+                    System.out.println("La matriz es triangular superior");
+                }else {
+                    System.out.println("la matriz no es triangular superior");
+                }
          
-         if(esMatrizTriangularInferior(matriz)){
-            System.out.println("La matriz es triangular inferior");
-         }else {
-             System.out.println("la matriz no es triangular inferior");
-         }}
+                if(esMatrizTriangularInferior(matriz)&&!esMatrizNula(matriz)){
+                    System.out.println("La matriz es triangular inferior");
+                }else {
+                    System.out.println("la matriz no es triangular inferior");
+               }
+            }
 
-        if (!esMatrizEscalar(matriz)&&!esMatrizIdentidad(matriz)&&!esMatrizNula(matriz)&&!esSimetrica(matriz)&&!esMatrizTriangularSuperior(matriz)&&!esMatrizTriangularInferior(matriz)){
-            System.out.println("La matriz no cumple con ningún tipo específico.");
-        }
-        }
-        else {
-            System.out.println("La matriz es rectangular.");
-             if (esMatrizColumna(matriz)) {
-            System.out.println("La matriz es una matriz columna.");
-        }else{
-            System.out.println("La matriz no es una matriz columna.");
-        }
-        if (esMatrizFila(matriz)) {
-            System.out.println("La matriz es una fila.");
+            if (!esMatrizEscalar(matriz)&&!esMatrizIdentidad(matriz)&&!esMatrizNula(matriz)&&!esSimetrica(matriz)&&!esMatrizTriangularSuperior(matriz)&&!esMatrizTriangularInferior(matriz)){
+                System.out.println("La matriz no cumple con ningún tipo específico.");
+            }
         } else {
-            System.out.println("La matriz no es matriz una fila.");
-        }     
-        if (esMatrizNula(matriz)) {
-            System.out.println("La matriz es nula.");
-        } else{
-            System.out.println("La matriz no es nula.");
-        } 
-        if (!esMatrizColumna(matriz)&&!esMatrizFila(matriz)&&!esMatrizNula(matriz)){
-            System.out.println("La matriz no cumple con ningún tipo específico.");
-        }
+            System.out.println("La matriz es rectangular.");
+            if (esMatrizColumna(matriz)) {
+                System.out.println("La matriz es una matriz columna.");
+            }else{
+                System.out.println("La matriz no es una matriz columna.");
+            }
+            if (esMatrizFila(matriz)) {
+                System.out.println("La matriz es una fila.");
+            } else {
+                System.out.println("La matriz no es matriz una fila.");
+            }     
+            if (esMatrizNula(matriz)) {
+                System.out.println("La matriz es nula.");
+            } else{
+                System.out.println("La matriz no es nula.");
+            } 
+            if (!esMatrizColumna(matriz)&&!esMatrizFila(matriz)&&!esMatrizNula(matriz)){
+                System.out.println("La matriz no cumple con ningún tipo específico.");
+            }
         }
         
         //representación gráfica de la matriz (prueba)
+        System.out.println(" ");
         System.out.println("|||||||| REPRESENTACIÓN DE LA MATRÍZ  ||||||||");
         System.out.println(" ");
         for (int i = 0; i < matriz.length; i++) {
             System.out.print("[ ");
             for (int j = 0; j < matriz[i].length; j++) {
                 
-                System.out.print(matriz[i][j] + " "); //Impresión de cada elemento y un espacio
+                System.out.print(matriz[i][j] + "  "); //Impresión de cada elemento y un espacio
                 
             }
             System.out.print("] ");
             System.out.println(); // Salto de línea para crear una nueva fila
             
         }
+
+
          System.out.println("Ingresa una operación a realizar, o ingrese 'q' para finalizar el programa :");
             System.out.println("Ingresa 'S' para sumar con otra matriz.");
             System.out.println("Ingresa 'M' para restar con otra matriz.");
-            System.out.println("Ingresa 'T' para saber su traza.");
-            System.out.println("Ingresa 'P' para saber su transpuesta.");
-            System.out.println("Ingresa 'D' para saber su determinante.");
+            System.out.println("Ingresa 'T' para hallar su traza.");
+            System.out.println("Ingresa 'P' para hallar su transpuesta.");
+            System.out.println("Ingresa 'D' para hallar su determinante.");
+            
         String letra = " ";
         boolean uo=false;
          while (!uo) {
-            //cambie el scaner.nextLine() a scanner.next() para que se detenga ahí y no de el mensaje de error a primeras.
+            
             letra = scanner.next();
             letra = letra.toLowerCase();
-
-            if (letra.length() == 1 && (letra.equals("s") || letra.equals("m") || letra.equals("p") || letra.equals("t") || letra.equals("d") || letra.equals("q"))) {
-                uo = true;
-            } else {
-                System.out.println("Ingrese un caracter indicado.");
-            }
+            
+        
+            if (letra.length() == 1 && (letra.equals("s") ||letra.equals("m") ||letra.equals("t") ||letra.equals("p")||letra.equals("d")||letra.equals("q") )){
+                uo= true; 
+            }else{
+                System.out.println("Ingrese un caracter indicado.");}
         }
          
     if (letra.equals("q")) {
       System.out.println("FIN DEL PROGRAMA.");  
-    }
+    }//si
    
         //SUMA DE 2 MATRICES
         if (letra.equals("s")) {
@@ -199,7 +202,8 @@ public class Trabajo_Algoritmia {
                         scanner.next(); // Consumir entrada inválida para evitar un bucle infinito
                     }
                 } while (true);
-            }}
+            }
+        }
         
         double[][] matrizsum = new double[filas][columnas];
         for(int i=0;i<filas;i++){
@@ -213,13 +217,15 @@ public class Trabajo_Algoritmia {
             System.out.print("[ ");
             for (int j = 0; j < matrizsum[i].length; j++) {
                 
-                System.out.print(matrizsum[i][j] + " "); //Impresión de cada elemento y un espacio
+                System.out.print(matrizsum[i][j] + "  "); //Impresión de cada elemento y un espacio
                 
             }
             System.out.print("] ");
             System.out.println(); // Salto de línea para crear una nueva fila
             
         }
+
+
             }
             
         //RESTA DE 2 MATRICES    
@@ -237,7 +243,7 @@ public class Trabajo_Algoritmia {
 
                     if (scanner.hasNextDouble()) {
                         matriz2[i][j] = scanner.nextDouble();
-                        break; // Salir del bucle si se ingresó un número real válido
+                        break; // Salir del bucle si se ingresó un número entero válido
                     } else {
                         System.out.println("Debe ingresar un número real.");
                         scanner.next(); // Consumir entrada inválida para evitar un bucle infinito
@@ -257,7 +263,7 @@ public class Trabajo_Algoritmia {
             System.out.print("[ ");
             for (int j = 0; j < matrizsum[i].length; j++) {
                 
-                System.out.print(matrizsum[i][j] + " "); //Impresión de cada elemento y un espacio
+                System.out.print(matrizsum[i][j] + "  "); //Impresión de cada elemento y un espacio
                 
             }
             System.out.print("] ");
@@ -292,9 +298,9 @@ public class Trabajo_Algoritmia {
                 filas = matriz.length;
                 columnas = matriz[0].length;
                 for (int i = 0; i < filas; i++) {
-                    System.out.print("[ ");
                     for (int j = 0; j < columnas; j++) {
-                        matrizTranspuesta[j][i] = matriz[i][j];          
+                        matrizTranspuesta[j][i] = matriz[i][j];
+                 
                     }
                 }
                 
@@ -308,58 +314,65 @@ public class Trabajo_Algoritmia {
               for (int i = 0; i < filasTranspuesta; i++) {
                 System.out.print("[ ");
                 for (int j = 0; j < columnasTranspuesta; j++) {
-                System.out.print(matrizTranspuesta[i][j] + " ");
+                System.out.print(matrizTranspuesta[i][j] + "  ");
               }
               System.out.print("] ");
                System.out.println(); 
               }
-               
+              
             }
+
+            //DETERMINANTE
             if (letra.equals("d")) {
-            double det = 0;
-            if (filas > 0 && matriz.length == filas && matriz[0].length == filas) {
-                if (filas == 1) {
-                    det = matriz[0][0];
-                } else if (filas == 2) {
-                    det = matriz[0][0] * matriz[1][1] - matriz[0][1] * matriz[1][0];
+                double det = 0;
+                if (filas > 0 && matriz.length == filas && matriz[0].length == filas) {
+                    if (filas == 1) {
+                        det = matriz[0][0];
+                    } else if (filas == 2) {
+                        det = matriz[0][0] * matriz[1][1] - matriz[0][1] * matriz[1][0];
+                    } else {
+                        det = calcularDeterminante(matriz); 
+                    }
                 } else {
-                    det = calcularDeterminante(matriz); 
+                    System.out.println("La matriz no es cuadrada. No se puede calcular la determinante.");
+                    
                 }
-            } else {
-                System.out.println("La matriz no es cuadrada. No se puede calcular la determinante.");
+                System.out.println("DETERMINANTE DE LA MATRIZ:");
+                System.out.println(det);
+                scanner.close();  
             }
+            
+        } 
+    
+        //métodos ( encapsula una serie de operaciones y devuelve un resultado específico ) para determinar las propiedades de la matriz ingresada inicialmente
+        //la diferencia entre metodo y función es que el metodo esta asociado a una clase, es parte de ella, y se usan modificadores public, private, protected para modificar su acceso; mientras que la funcion no esta asociada a una funcion y no usa modificadores. puede ser llamada desde cualqueir parte del programa.
 
-            System.out.println("DETERMINANTE DE LA MATRIZ:");
-            System.out.println(det);
-        }
-          scanner.close(); 
-    }
-
-    public static double calcularDeterminante(double[][] matriz) {
+        //DETERMINANTES
+        public static double calcularDeterminante(double[][] matriz) {
         double det = 0;
         int n = matriz.length;
 
-        for (int j = 0; j < n; j++) {
-            double[][] submatriz = new double[n - 1][n - 1];
-
-            for (int fila = 1; fila < n; fila++) {
-                int columnaDestino = 0;
+        for (int j = 0; j < n; j++) { //recorre las columnas de la matriz
+            double[][] submatriz = new double[n - 1][n - 1]; //crea la submatriz n-1 x n-1
+            
+            //subatriz n-1xn-1 que empieza de la siguiene fila y toma todas las columna menos la columna del elemento
+            for (int fila = 1; fila < n; fila++) { //recorre las filas empezando por la segunda fila
+                int columnaDestino = 0; //rastrea la columna suubmatriz
                 for (int columna = 0; columna < n; columna++) {
-                    if (columna != j) {
+                    if (columna != j) { //verifica que la columna sea diferente para el metodo de cofactores
                         submatriz[fila - 1][columnaDestino] = matriz[fila][columna];
                         columnaDestino++;
                     }
                 }
             }
 
-            double cofactor = matriz[0][j] * calcularDeterminante(submatriz); 
-            det += j % 2 == 0 ? cofactor : -cofactor; 
+            double cofactor = matriz[0][j] * calcularDeterminante(submatriz);  //multiplicacion de la primera fila por la determinante de la submatriz
+            det =det+ j % 2 == 0 ? cofactor : -cofactor; //esctuctura "entonces" la determinante es determinante + (si j (columna) es par el cofactor es positivo y se suma, si  no, el cofactor es negativo y se resta)
         }
 
-        return det;
-    }
-    
-        //funciones para determinar las propiedades de la matriz ingresada inicialmente
+        return det; //devuelve la determinante
+        }
+        //verificar que la matriz sea rectangular
     
     public static boolean esRectangular(double[][]matriz){
         if(matriz.length!=matriz[0].length){
@@ -374,8 +387,8 @@ public class Trabajo_Algoritmia {
     public static boolean esMatrizNula(double[][] matriz) {
         //explicación: es una función o método (orientado a objetos), si es publica se puede llamar desde cualquier class, Static (devuelve valores), boolean (solo devuelve true o false).
         //(int[][]matriz); parametros int[][](matriz)
-        for (double[] fila : matriz) {
-            for (double elemento : fila) {
+        for (double[] fila : matriz) { //bucle for-each o bucle mejorado, recorre "filas" en orden de menor a mayor hasta que ya no haya más filas en la matriz
+            for (double elemento : fila) { //igualemnte, bucle for-each pero esta vez con cada elemento dentro de lafila  (los elemento matriz [ i ] [ j ]) y los evalua con el if
                 if (elemento != 0) {
                     return false; //return (true o false) es como un break que asigna a "esMatrizNula" el valor de false o true para luego ser evaluado, al ejecutar el return se detiene esta funciona y devuelve el valor booleano
                 }
@@ -448,6 +461,7 @@ public class Trabajo_Algoritmia {
 
         return true;
     }
+    
     // Verificar si la matriz es triangular superior
     public static boolean esMatrizTriangularSuperior(double[][] matriz) {
         int filas = matriz.length;
@@ -492,9 +506,7 @@ public class Trabajo_Algoritmia {
         int columnas = matriz[0].length;
 
         return filas > 1 && columnas == 1;
-    }//equide
-    //prueba de escritorio2
-//MMMA
-
+    }
 
 }
+
