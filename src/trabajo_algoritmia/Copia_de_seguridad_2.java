@@ -344,7 +344,8 @@ public class Copia_de_seguridad_2 {
             
         } 
     
-        //funciones para determinar las propiedades de la matriz ingresada inicialmente
+        //métodos ( encapsula una serie de operaciones y devuelve un resultado específico ) para determinar las propiedades de la matriz ingresada inicialmente
+        //la diferencia entre metodo y función es que el metodo esta asociado a una clase, es parte de ella, y se usan modificadores public, private, protected para modificar su acceso; mientras que la funcion no esta asociada a una funcion y no usa modificadores. puede ser llamada desde cualqueir parte del programa.
 
         //DETERMINANTES
         public static double calcularDeterminante(double[][] matriz) {
@@ -352,13 +353,13 @@ public class Copia_de_seguridad_2 {
         int n = matriz.length;
 
         for (int j = 0; j < n; j++) { //recorre las columnas de la matriz
-            double[][] submatriz = new double[n - 1][n - 1]; //submatriz n-1 x n-1
+            double[][] submatriz = new double[n - 1][n - 1]; //crea la submatriz n-1 x n-1
             
-            //subatriz n-1xn-1 que empieza de la siguiene fila y columna
+            //subatriz n-1xn-1 que empieza de la siguiene fila y toma todas las columna menos la columna del elemento
             for (int fila = 1; fila < n; fila++) { //recorre las filas empezando por la segunda fila
                 int columnaDestino = 0; //rastrea la columna suubmatriz
                 for (int columna = 0; columna < n; columna++) {
-                    if (columna != j) { //verifica que la columna sea diferente
+                    if (columna != j) { //verifica que la columna sea diferente para el metodo de cofactores
                         submatriz[fila - 1][columnaDestino] = matriz[fila][columna];
                         columnaDestino++;
                     }
@@ -366,11 +367,12 @@ public class Copia_de_seguridad_2 {
             }
 
             double cofactor = matriz[0][j] * calcularDeterminante(submatriz);  //multiplicacion de la primera fila por la determinante de la submatriz
-            det += j % 2 == 0 ? cofactor : -cofactor; 
+            det =det+ j % 2 == 0 ? cofactor : -cofactor; //esctuctura "entonces" la determinante es determinante + (si j (columna) es par el cofactor es positivo y se suma, si  no, el cofactor es negativo y se resta)
         }
 
         return det; //devuelve la determinante
         }
+        //verificar que la matriz sea rectangular
     
     public static boolean esRectangular(double[][]matriz){
         if(matriz.length!=matriz[0].length){
@@ -385,8 +387,8 @@ public class Copia_de_seguridad_2 {
     public static boolean esMatrizNula(double[][] matriz) {
         //explicación: es una función o método (orientado a objetos), si es publica se puede llamar desde cualquier class, Static (devuelve valores), boolean (solo devuelve true o false).
         //(int[][]matriz); parametros int[][](matriz)
-        for (double[] fila : matriz) {
-            for (double elemento : fila) {
+        for (double[] fila : matriz) { //bucle for-each o bucle mejorado, recorre "filas" en orden de menor a mayor hasta que ya no haya más filas en la matriz
+            for (double elemento : fila) { //igualemnte, bucle for-each pero esta vez con cada elemento dentro de lafila  (los elemento matriz [ i ] [ j ]) y los evalua con el if
                 if (elemento != 0) {
                     return false; //return (true o false) es como un break que asigna a "esMatrizNula" el valor de false o true para luego ser evaluado, al ejecutar el return se detiene esta funciona y devuelve el valor booleano
                 }
