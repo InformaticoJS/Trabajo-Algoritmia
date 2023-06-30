@@ -74,8 +74,10 @@ public class Copia_de_seguridad_2 {
         System.out.println("|||||||| ANÁLISIS DE LA MATRIZ  ||||||||");
         System.out.println(" ");
         //rectangular o cuadrada
+        
         if(filas==columnas){
             System.out.println("La matriz es una matriz cuadrada.");
+            if(filas!=1){
             if (esMatrizNula(matriz)) {
                 System.out.println("La matriz es nula.");
             } else{
@@ -94,30 +96,44 @@ public class Copia_de_seguridad_2 {
             }
         //añadí una forma de saber si es simétrica cree un public boolean tambien para ello.
             if(esSimetrica(matriz)&&!esMatrizNula(matriz)){
-                System.out.println("la matriz es simétrica");
+                System.out.println("La matriz es simétrica");
             } else {
-                System.out.println("la matriz no es simétrica");
+                System.out.println("La matriz no es simétrica");
             }
             if(esMatrizTriangularSuperior(matriz)&&esMatrizTriangularInferior(matriz)&&!esMatrizNula(matriz)){
                 System.out.println("La matriz es diagonal");
             }else {
-                if(esMatrizTriangularSuperior(matriz)&&!esMatrizNula(matriz)){
+             System.out.println("La matriz no es diagonal");
+                }   
+                if(esMatrizTriangularSuperior(matriz)&&!esMatrizNula(matriz)&&!esMatrizTriangularInferior(matriz)){
                     System.out.println("La matriz es triangular superior");
                 }else {
-                    System.out.println("la matriz no es triangular superior");
+                    System.out.println("La matriz no es triangular superior");
                 }
          
-                if(esMatrizTriangularInferior(matriz)&&!esMatrizNula(matriz)){
+                if(esMatrizTriangularInferior(matriz)&&!esMatrizNula(matriz)&&!esMatrizTriangularSuperior(matriz)){
                     System.out.println("La matriz es triangular inferior");
                 }else {
-                    System.out.println("la matriz no es triangular inferior");
+                    System.out.println("La matriz no es triangular inferior");
                }
-            }
-
+            
             if (!esMatrizEscalar(matriz)&&!esMatrizIdentidad(matriz)&&!esMatrizNula(matriz)&&!esSimetrica(matriz)&&!esMatrizTriangularSuperior(matriz)&&!esMatrizTriangularInferior(matriz)){
                 System.out.println("La matriz no cumple con ningún tipo específico.");
+            } }else{
+                if (esMatrizNula(matriz)) {
+                System.out.println("La matriz es nula.");
+            } else{
+                System.out.println("La matriz no es nula.");
             }
-        } else {
+        if (esMatrizIdentidad(matriz)&&!esMatrizNula(matriz)) {
+                System.out.println("La matriz es identidad.");
+            } else {
+                System.out.println("La matriz no es identidad.");
+            }
+            if (!esMatrizIdentidad(matriz)&&!esMatrizNula(matriz)){
+                System.out.println("La matriz no cumple con ningún tipo específico.");
+            }
+        }} else {
             System.out.println("La matriz es rectangular.");
             if (esMatrizColumna(matriz)) {
                 System.out.println("La matriz es una matriz columna.");
@@ -333,12 +349,12 @@ public class Copia_de_seguridad_2 {
                     } else {
                         det = calcularDeterminante(matriz); 
                     }
+                    System.out.println("DETERMINANTE DE LA MATRIZ:");
+                System.out.println(det);
                 } else {
                     System.out.println("La matriz no es cuadrada. No se puede calcular la determinante.");
                     
-                }
-                System.out.println("DETERMINANTE DE LA MATRIZ:");
-                System.out.println(det);
+                }             
                 scanner.close();  
             }
             
