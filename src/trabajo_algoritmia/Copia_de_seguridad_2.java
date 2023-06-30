@@ -95,7 +95,7 @@ public class Copia_de_seguridad_2 {
                 System.out.println("La matriz no es escalar.");
             }
         //añadí una forma de saber si es simétrica cree un public boolean tambien para ello.
-            if(esSimetrica(matriz)&&!esMatrizNula(matriz)){
+            if(esSimetrica(matriz)){
                 System.out.println("La matriz es simétrica");
             } else {
                 System.out.println("La matriz no es simétrica");
