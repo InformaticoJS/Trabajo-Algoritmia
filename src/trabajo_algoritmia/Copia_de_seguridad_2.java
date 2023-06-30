@@ -60,7 +60,7 @@ public class Copia_de_seguridad_2 {
 
                     if (scanner.hasNextDouble()) {
                         matriz[i][j] = scanner.nextDouble();
-                        break; // Salir del bucle si se ingresó un número real válido
+                        break; // Salir del bucle (do while) si se ingresó un número real válido
                     } else {
                         System.out.println("Debe ingresar un número real.");
                         scanner.next(); // Consumir entrada inválida para evitar un bucle infinito
