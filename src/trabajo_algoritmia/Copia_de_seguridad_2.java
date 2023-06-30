@@ -160,13 +160,13 @@ public class Copia_de_seguridad_2 {
         System.out.println("|||||||| REPRESENTACIÓN DE LA MATRÍZ  ||||||||");
         System.out.println(" ");
         for (int i = 0; i < matriz.length; i++) {
-            System.out.print("[ ");
+            System.out.print("[  ");
             for (int j = 0; j < matriz[i].length; j++) {
                 
                 System.out.print(matriz[i][j] + "  "); //Impresión de cada elemento y un espacio
                 
             }
-            System.out.print("] ");
+            System.out.print("]  ");
             System.out.println(); // Salto de línea para crear una nueva fila
             
         }
@@ -230,13 +230,13 @@ public class Copia_de_seguridad_2 {
         System.out.println("|||||||| REPRESENTACIÓN DE LA SUMA  ||||||||");
         System.out.println(" ");
          for (int i = 0; i < matrizsum.length; i++) {
-            System.out.print("[ ");
+            System.out.print("[  ");
             for (int j = 0; j < matrizsum[i].length; j++) {
                 
                 System.out.print(matrizsum[i][j] + "  "); //Impresión de cada elemento y un espacio
                 
             }
-            System.out.print("] ");
+            System.out.print("]  ");
             System.out.println(); // Salto de línea para crear una nueva fila
             
         }
@@ -276,13 +276,13 @@ public class Copia_de_seguridad_2 {
         System.out.println("|||||||| REPRESENTACIÓN DE LA RESTA  ||||||||");
         System.out.println(" ");
          for (int i = 0; i < matrizsum.length; i++) {
-            System.out.print("[ ");
+            System.out.print("[  ");
             for (int j = 0; j < matrizsum[i].length; j++) {
                 
                 System.out.print(matrizsum[i][j] + "  "); //Impresión de cada elemento y un espacio
                 
             }
-            System.out.print("] ");
+            System.out.print("]  ");
             System.out.println(); // Salto de línea para crear una nueva fila
         }
             }
@@ -328,11 +328,11 @@ public class Copia_de_seguridad_2 {
                System.out.println("|||||||| REPRESENTACIÓN DE LA TRANSPUESTA  ||||||||");
               System.out.println(" ");
               for (int i = 0; i < filasTranspuesta; i++) {
-                System.out.print("[ ");
+                System.out.print("[  ");
                 for (int j = 0; j < columnasTranspuesta; j++) {
                 System.out.print(matrizTranspuesta[i][j] + "  ");
               }
-              System.out.print("] ");
+              System.out.print("]  ");
                System.out.println(); 
               }
               
