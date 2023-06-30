@@ -367,7 +367,7 @@ public class Copia_de_seguridad_2 {
                 }
     
                 double cofactor = matriz[0][j] * calcularDeterminante(submatriz);  //multiplicacion de la primera fila por la determinante de la submatriz
-                det += j % 2 == 0 ? cofactor : -cofactor; 
+                det += j % 2 == 0 ? cofactor : -cofactor; //esctuctura "entonces" la determinante es determinante + (si j (columna) es par el cofactor es positivo y se suma, si no, el cofactor es negativo y se resta)
             }
     
             return det; //devuelve la determinante
