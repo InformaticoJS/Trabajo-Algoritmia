@@ -391,17 +391,7 @@ public class Copia_de_seguridad_2 {
     
             return det;
         }
-        //verificar que la matriz sea rectangular
-    
-    public static boolean esRectangular(double[][]matriz){
-        if(matriz.length!=matriz[0].length){
-            return true;
-        } else{
-            return false;
-        }
         
-    }
-
     // Verificar si la matriz es nula
     public static boolean esMatrizNula(double[][] matriz) {
         //explicación: es una función o método (orientado a objetos), si es publica se puede llamar desde cualquier class, Static (devuelve valores), boolean (solo devuelve true o false).
