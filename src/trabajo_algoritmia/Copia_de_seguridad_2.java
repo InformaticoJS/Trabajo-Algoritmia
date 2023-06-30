@@ -352,26 +352,29 @@ public class Copia_de_seguridad_2 {
             double det = 0;
             int n = matriz.length;
     
-            for (int j = 0; j < n; j++) { //recorre las columnas de la matriz
-                double[][] submatriz = new double[n - 1][n - 1]; //submatriz n-1 x n-1
-                
-                //subatriz n-1xn-1 que empieza de la siguiene fila y columna
-                for (int fila = 1; fila < n; fila++) { //recorre las filas empezando por la segunda fila
-                    int columnaDestino = 0; //rastrea la columna suubmatriz
-                    for (int columna = 0; columna < n; columna++) {
-                        if (columna != j) { //verifica que la columna sea diferente
-                            submatriz[fila - 1][columnaDestino] = matriz[fila][columna];
-                            columnaDestino++;
+            if (n == 1) {
+                det = matriz[0][0];
+            } else if (n == 2) {
+                det = matriz[0][0] * matriz[1][1] - matriz[0][1] * matriz[1][0];
+            } else {
+                for (int j = 0; j < n; j++) {
+                    double[][] submatriz = new double[n - 1][n - 1];
+                    for (int fila = 1; fila < n; fila++) {
+                        int columnaDestino = 0;
+                        for (int columna = 0; columna < n; columna++) {
+                            if (columna != j) {
+                                submatriz[fila - 1][columnaDestino] = matriz[fila][columna];
+                                columnaDestino++;
+                            }
                         }
                     }
+                    double cofactor = matriz[0][j] * calcularDeterminante(submatriz);
+                    det += j % 2 == 0 ? cofactor : -cofactor;
                 }
-    
-                double cofactor = matriz[0][j] * calcularDeterminante(submatriz);  //multiplicacion de la primera fila por la determinante de la submatriz
-                det += j % 2 == 0 ? cofactor : -cofactor; //esctuctura "entonces" la determinante es determinante + (si j (columna) es par el cofactor es positivo y se suma, si no, el cofactor es negativo y se resta)
             }
     
-            return det; //devuelve la determinante
-            }
+            return det;
+        }
         //verificar que la matriz sea rectangular
     
     public static boolean esRectangular(double[][]matriz){
